@@ -2,7 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install the project:
+```bash
+npm i
+# or
+npm install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
@@ -14,7 +21,15 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying the pages at `app/...`. The page auto-updates as you edit the file.
+
+I have grouped into two non routable folders the pages inside the project.
+
+The project is defined to have a main layout `app/layout.jsx` and two specific ones. One for the authenticated group `app/(authGroup)/layout.jsx` and one for
+the unauthenticated group `app/(unAuthGroup)/layout.jsx`.
+
+The main layout for the authenticated group is made using the drawer component of material-ui and made a component from it so that it can be reusable. For more 
+information about the initial stage of the layout check https://mui.com/material-ui/react-drawer/
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
