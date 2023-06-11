@@ -1,5 +1,5 @@
 export default function DeliveryTime(){
     return (
-        <div>test</div>
+        <div>delivery-time</div>
     )
 }
