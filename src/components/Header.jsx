@@ -8,12 +8,6 @@ import {useState} from "react";
 const drawerWidth = 240;
 
 export default function Header(props){
-    const [state,setState] = useState({
-        mobileOpen:false
-    })
-    const handleDrawerToggle = () => {
-        setState({...state,mobileOpen:!state.mobileOpen})
-    };
 
     return (
         <AppBar
@@ -25,14 +19,11 @@ export default function Header(props){
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
-                    onClick={handleDrawerToggle}
+                    onClick={props.handleToggle}
                     sx={{mr: 2, display: {sm: 'none'}}}
                 >
                     <MenuIcon/>
                 </IconButton>
-                {/*<Typography variant="h6" noWrap component="div">
-                        Responsive drawer
-                    </Typography>*/}
             </Toolbar>
         </AppBar>
     )

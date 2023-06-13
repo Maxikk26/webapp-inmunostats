@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
@@ -16,9 +16,9 @@ import Collapse from "@mui/material/Collapse";
 
 const iconColor = '#f8f9f9'
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     const [state, setState] = useState({
-        mobileOpen: false,
+        mobileOpen: props.mobileOpen ?? false,
         openAdministration: false,
     })
 
@@ -43,10 +43,6 @@ export default function Sidebar() {
             ]
         }
     ]
-
-    const handleDrawerToggle = () => {
-        setState({...state, mobileOpen: !state.mobileOpen})
-    };
 
     const handleClick = (key) => {
         setState({...state, [key]: !state[key]})

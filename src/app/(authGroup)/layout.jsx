@@ -23,31 +23,31 @@ export default function AuthLayout(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{display: 'flex'}}>
-            <CssBaseline/>
-            <Header/>
-            <Box component="nav" sx={styles.navContainer} aria-label="mailbox folders" >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={state.mobileOpen}
-                    onClose={handleDrawerToggle}
-                    // Better open performance on mobile.
-                    ModalProps={{ keepMounted: true }}
-                    sx={styles.temporaryDrawer}
-                >
-                    <Sidebar/>
-                </Drawer>
-                <Drawer variant="permanent" sx={styles.permanentDrawer} open>
-                    <Sidebar/>
-                </Drawer>
+            <Box sx={{display: 'flex'}}>
+                <CssBaseline/>
+                <Header handleToggle={() => handleDrawerToggle()}/>
+                <Box component="nav" sx={styles.navContainer} aria-label="mailbox folders">
+                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                    <Drawer
+                        container={container}
+                        variant="temporary"
+                        open={state.mobileOpen}
+                        onClose={handleDrawerToggle}
+                        // Better open performance on mobile.
+                        ModalProps={{keepMounted: true}}
+                        sx={styles.temporaryDrawer}
+                    >
+                        <Sidebar mobileOpen={state.mobileOpen}/>
+                    </Drawer>
+                    <Drawer variant="permanent" sx={styles.permanentDrawer} open>
+                        <Sidebar mobileOpen={state.mobileOpen}/>
+                    </Drawer>
+                </Box>
+                <Box component="main" sx={styles.mainContainer}>
+                    <Toolbar/>
+                    {props.children}
+                </Box>
             </Box>
-            <Box component="main" sx={styles.mainContainer} >
-                <Toolbar/>
-                {props.children}
-            </Box>
-        </Box>
     );
 }
 
